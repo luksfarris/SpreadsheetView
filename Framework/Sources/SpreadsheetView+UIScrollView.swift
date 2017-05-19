@@ -27,6 +27,12 @@ extension SpreadsheetView {
         }
     }
 
+    public var contentSize: CGSize {
+        get {
+            return overlayView.contentSize
+        }
+    }
+
     public var contentInset: UIEdgeInsets {
         get {
             return rootView.contentInset
@@ -65,5 +71,9 @@ extension SpreadsheetView {
     func _notifyDidScroll() {
         adjustScrollViewSizes()
         adjustOverlayViewFrame()
+    }
+
+    public override func isKind(of aClass: AnyClass) -> Bool {
+        return rootView.isKind(of: aClass)
     }
 }
